@@ -20,14 +20,14 @@ export default {
         onMounted(() => {
             // Initialize Three.js
             scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
             renderer = new THREE.WebGLRenderer();
             renderer.setSize(window.innerWidth, window.innerHeight);
             canvasContainer.value.appendChild(renderer.domElement);
 
             // Create a directional light
             light = new THREE.DirectionalLight(0xffffff, 1); // White light with intensity 1
-            light.position.set(1, 1, 1); // Set light position
+            light.position.set(1, 1, 5); // Set light position
 
             scene.add(light); // Add light to the scene
 
@@ -40,7 +40,7 @@ export default {
             });
 
             // Position the camera
-            camera.position.z = 5;
+            camera.position.z = 7;
 
             // Animation
             const animate = () => {
@@ -49,6 +49,8 @@ export default {
                     // model.rotation.x += 0.01;
                     model.rotation.y += 0.01;
                 }
+                renderer.setClearColor(0xffffff, 0);
+
                 renderer.render(scene, camera);
             };
             animate();
