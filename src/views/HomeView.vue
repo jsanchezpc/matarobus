@@ -1,37 +1,45 @@
 <template>
-    <div id="home">
-        <div id="line-selector">
-            <div id="number">
-                <p>1</p>
-            </div>
-            <div id="line_info">
-                <p>Renfe > Hospital</p>
-            </div>
-        </div>
-        <div class="wavy-bg">
-
-        </div>
-        <BusModel />
-        <input class="big-button big1" type="button" value="Next" />
-        <input class="big-button big2" type="button" value="Info" />
-        <div id="settings">
-            <span class="material-symbols-outlined settings-icon">
-                settings
-            </span>
-        </div>
+  <div id="home">
+    <div id="line-selector">
+      <div id="number">
+        <p>1</p>
+      </div>
+      <div id="line_info">
+        <p id="direction">Renfe > Hospital</p>
+        <span
+          style="color: #ff69a9; font-size: 1em; margin-left: 0.1em;"
+          class="material-symbols-outlined"
+        >
+          swap_horiz
+        </span>
+        <br />
+        <p id="stop_name">Pl Granollers</p>
+        <span style="color: #ff69a9;" class="material-symbols-outlined">
+          arrow_drop_down
+        </span>
+        <p id="estimated_time">16:20</p>
+      </div>
     </div>
+    <div class="wavy-bg"></div>
+    <BusModel />
+    <input class="big-button big1" type="button" value="Cambiar bus" />
+    <input class="big-button big2" type="button" value="Info" />
+    <div id="settings">
+      <span class="material-symbols-outlined settings-icon"> settings </span>
+    </div>
+  </div>
 </template>
 
 <script>
-import BusModel from '@/components/BusModel.vue'
+import BusModel from "@/components/BusModel.vue";
 export default {
-    components: {
-        BusModel
-    },
-    setup() {
-        console.log('yes')
-    }
-}
+  components: {
+    BusModel,
+  },
+  setup() {
+    console.log("yes");
+  },
+};
 </script>
 
 <style scoped>
@@ -77,7 +85,7 @@ div#number p {
 
 div#line_info {
     flex: 70%;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     /* Center horizontally */
@@ -86,6 +94,24 @@ div#line_info {
 div#line_info p {
     color: white;
     margin: 0;
+    margin-left: 0.4em;
+    color: white;
+    display: inline;
+}
+
+div#line_info p#direction {
+    font-size: 14px;
+    color: white;
+}
+
+div#line_info p#stop_name {
+    font-size: 24px;
+}
+
+div#line_info p#estimated_time {
+    font-size: 24px;
+    float: right;
+    margin-right: 0.1em;
     color: #ff69a9;
 }
 
